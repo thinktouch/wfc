@@ -52,14 +52,14 @@ export default function WordFrequencyCounter() {
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="在此粘贴您的文本..."
+        placeholder="Paste your text here..."
         className="w-full p-2 mb-4 border rounded"
       />
       <input
         type="text"
         value={excludeWords}
         onChange={(e) => setExcludeWords(e.target.value)}
-        placeholder="输入要排除的单词，用逗号分隔"
+        placeholder="Enter words to exclude, separated by commas"
         className="w-full p-2 mb-2 border rounded"
       />
       <Link 
@@ -68,19 +68,19 @@ export default function WordFrequencyCounter() {
         rel="noopener noreferrer"
         className="block mb-4 text-blue-600 hover:underline"
       >
-        查看排除单词列表
+        View exclude simple words list
       </Link>
       <div className="button-container">
-        <button onClick={countWords}>统计单词</button>
-        <button className="download-button" onClick={downloadResults}>下载结果</button>
+        <button onClick={countWords}>Count Words</button>
+        <button className="download-button" onClick={downloadResults}>Download Results</button>
       </div>
       <table>
         <thead>
           <tr>
-            <th>序号</th>
-            <th>单词</th>
-            <th>频率</th>
-            <th>操作</th>
+            <th>No.</th>
+            <th>Word</th>
+            <th>Frequency</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -93,7 +93,7 @@ export default function WordFrequencyCounter() {
                 <td>{freq}</td>
                 <td>
                   <button className="exclude-button" onClick={() => excludeWord(word)}>
-                    排除
+                    Exclude
                   </button>
                 </td>
               </tr>
