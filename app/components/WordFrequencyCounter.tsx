@@ -75,24 +75,24 @@ export default function WordFrequencyCounter() {
         <button onClick={downloadResults} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download Results</button>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full text-left border-collapse bg-white text-gray-900">
           <thead>
             <tr className="bg-gray-200">
-              <th className="p-2 border">No.</th>
-              <th className="p-2 border">Word</th>
-              <th className="p-2 border">Frequency</th>
-              <th className="p-2 border">Action</th>
+              <th className="p-2 border border-gray-300">No.</th>
+              <th className="p-2 border border-gray-300">Word</th>
+              <th className="p-2 border border-gray-300">Frequency</th>
+              <th className="p-2 border border-gray-300">Action</th>
             </tr>
           </thead>
           <tbody>
             {Object.entries(wordCount)
               .sort((a, b) => b[1] - a[1])
               .map(([word, freq], index) => (
-                <tr key={word} className="border-b">
-                  <td className="p-2 border">{index + 1}</td>
-                  <td className="p-2 border">{word}</td>
-                  <td className="p-2 border">{freq}</td>
-                  <td className="p-2 border">
+                <tr key={word} className="border-b border-gray-300">
+                  <td className="p-2 border border-gray-300 text-gray-900">{index + 1}</td>
+                  <td className="p-2 border border-gray-300 text-gray-900">{word}</td>
+                  <td className="p-2 border border-gray-300 text-gray-900">{freq}</td>
+                  <td className="p-2 border border-gray-300">
                     <button 
                       className="bg-yellow-500 text-white px-2 py-1 rounded text-sm hover:bg-yellow-600" 
                       onClick={() => excludeWord(word)}
