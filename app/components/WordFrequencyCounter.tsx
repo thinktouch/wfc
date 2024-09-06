@@ -53,14 +53,14 @@ export default function WordFrequencyCounter() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Paste your text here..."
-        className="w-full p-2 mb-4 border rounded"
+        className="w-full p-2 mb-4 border rounded text-gray-900 bg-white"
       />
       <input
         type="text"
         value={excludeWords}
         onChange={(e) => setExcludeWords(e.target.value)}
         placeholder="Enter words to exclude, separated by commas"
-        className="w-full p-2 mb-2 border rounded"
+        className="w-full p-2 mb-2 border rounded text-gray-900 bg-white"
       />
       <Link 
         href="/data/exclude.txt" 
@@ -68,38 +68,43 @@ export default function WordFrequencyCounter() {
         rel="noopener noreferrer"
         className="block mb-4 text-blue-600 hover:underline"
       >
-        View exclude simple words list
+        View exclude words list
       </Link>
-      <div className="button-container">
-        <button onClick={countWords}>Count Words</button>
-        <button className="download-button" onClick={downloadResults}>Download Results</button>
+      <div className="button-container flex flex-col sm:flex-row gap-2 mb-4">
+        <button onClick={countWords} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Count Words</button>
+        <button onClick={downloadResults} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download Results</button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>No.</th>
-            <th>Word</th>
-            <th>Frequency</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(wordCount)
-            .sort((a, b) => b[1] - a[1])
-            .map(([word, freq], index) => (
-              <tr key={word}>
-                <td>{index + 1}</td>
-                <td>{word}</td>
-                <td>{freq}</td>
-                <td>
-                  <button className="exclude-button" onClick={() => excludeWord(word)}>
-                    Exclude
-                  </button>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="p-2 border">No.</th>
+              <th className="p-2 border">Word</th>
+              <th className="p-2 border">Frequency</th>
+              <th className="p-2 border">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(wordCount)
+              .sort((a, b) => b[1] - a[1])
+              .map(([word, freq], index) => (
+                <tr key={word} className="border-b">
+                  <td className="p-2 border">{index + 1}</td>
+                  <td className="p-2 border">{word}</td>
+                  <td className="p-2 border">{freq}</td>
+                  <td className="p-2 border">
+                    <button 
+                      className="bg-yellow-500 text-white px-2 py-1 rounded text-sm hover:bg-yellow-600" 
+                      onClick={() => excludeWord(word)}
+                    >
+                      Exclude
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
