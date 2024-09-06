@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function WordFrequencyCounter() {
   const [text, setText] = useState('');
@@ -52,13 +53,23 @@ export default function WordFrequencyCounter() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="在此粘贴您的文本..."
+        className="w-full p-2 mb-4 border rounded"
       />
       <input
         type="text"
         value={excludeWords}
         onChange={(e) => setExcludeWords(e.target.value)}
         placeholder="输入要排除的单词，用逗号分隔"
+        className="w-full p-2 mb-2 border rounded"
       />
+      <Link 
+        href="/data/exclude.txt" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block mb-4 text-blue-600 hover:underline"
+      >
+        查看排除单词列表
+      </Link>
       <div className="button-container">
         <button onClick={countWords}>统计单词</button>
         <button className="download-button" onClick={downloadResults}>下载结果</button>
