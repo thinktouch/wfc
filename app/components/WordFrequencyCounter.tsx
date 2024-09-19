@@ -1,7 +1,7 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function WordFrequencyCounter() {
   const [text, setText] = useState('');
@@ -52,6 +52,25 @@ export default function WordFrequencyCounter() {
 
   return (
     <>
+      <Head>
+        <meta name="description" content="Efficient online word frequency counter tool. Easily analyze word occurrences in texts. Supports word exclusion, ideal for writing, SEO optimization, and language learning." />
+      </Head>
+      <h1 className="text-2xl font-bold mb-4">Smart Word Frequency Counter - Your Text Analysis Companion</h1>
+      <p className="mb-4">Our Word Frequency Counter is a powerful online text analysis tool designed for writers, SEO specialists, language learners, and data analysts. It quickly and accurately calculates the frequency of words in any given text, helping you gain deep insights into text structure and keyword distribution.</p>
+      
+      <h2 className="text-xl font-semibold mb-2">Key Features:</h2>
+      <ul className="list-disc list-inside mb-4">
+        <li>Instant Statistics: Get word frequency results immediately after inputting text</li>
+        <li>Exclusion Function: Flexibly exclude common or irrelevant words to focus on important content</li>
+        <li>User-Friendly: Clean and intuitive interface for easy operation</li>
+        <li>Multi-Scenario Application: Suitable for content creation, SEO optimization, language learning, and more</li>
+        <li>Free to Use: No registration required, use anytime, anywhere</li>
+      </ul>
+      
+      <p className="mb-4">Whether you need to optimize website content, analyze literary works, or learn a new language, our Word Frequency Counter tool provides valuable insights. Try it now and boost your text analysis efficiency!</p>
+
+      <hr className="my-8 border-t border-gray-300" />
+
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
