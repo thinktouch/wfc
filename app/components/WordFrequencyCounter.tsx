@@ -1,12 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function WordFrequencyCounter() {
   const [text, setText] = useState('');
   const [excludeWords, setExcludeWords] = useState('');
   const [wordCount, setWordCount] = useState<{[key: string]: number}>({});
+
+  useEffect(() => {
+    countWords();
+  }, [excludeWords, text]);
 
   const countWords = () => {
     const words = text.match(/\b(\w+)\b/g) || [];
@@ -25,7 +29,6 @@ export default function WordFrequencyCounter() {
 
   const excludeWord = (word: string) => {
     setExcludeWords(prev => prev ? `${prev}, ${word}` : word);
-    countWords();
   };
 
   const downloadResults = () => {
