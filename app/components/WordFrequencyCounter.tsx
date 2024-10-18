@@ -54,6 +54,16 @@ export default function WordFrequencyCounter() {
     <>
       <Head>
         <meta name="description" content="Efficient online word frequency counter tool. Easily analyze word occurrences in texts. Supports word exclusion, ideal for writing, SEO optimization, and language learning." />
+        {/* 添加Google Analytics代码 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-38M0ZW2PTC"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-38M0ZW2PTC');
+          `}
+        </script>
       </Head>
       <h1 className="text-2xl font-bold mb-4">Smart Word Frequency Counter - Your Text Analysis Companion</h1>
       <p className="mb-4">Our Word Frequency Counter is a powerful online text analysis tool designed for writers, SEO specialists, language learners, and data analysts. It quickly and accurately calculates the frequency of words in any given text, helping you gain deep insights into text structure and keyword distribution.</p>
