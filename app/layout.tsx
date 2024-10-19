@@ -18,6 +18,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Word Frequency Counter",
   description: "A simple tool for counting word frequencies",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
